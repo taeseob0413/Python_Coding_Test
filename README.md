@@ -1,3 +1,5 @@
 # Python_Coding_Test
 
-<img src="https://img.shields.io/badge/python-3776AB?style=flat&logo=python&logoColor=white"/>
+## studying
+
+<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
