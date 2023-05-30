@@ -8,4 +8,4 @@
 
 ## 📖studying
 
--greedy
+- greedy
