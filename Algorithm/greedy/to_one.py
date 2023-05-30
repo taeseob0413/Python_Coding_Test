@@ -21,4 +21,5 @@ while True:
         break
 count+=n-1
 print(count)
+#계정변경 됐나?
 
