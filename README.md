@@ -18,3 +18,4 @@
     - merge_sort
     - quick_sort
     - count_sort
+  - binary_search
