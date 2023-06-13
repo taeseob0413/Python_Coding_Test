@@ -19,3 +19,4 @@
     - quick_sort
     - count_sort
   - binary_search
+  - dynamic_programming
