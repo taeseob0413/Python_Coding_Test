@@ -32,10 +32,11 @@ def merge_split(data):
     if len(data)<=1:
         return data
     mid=int(len(data)/2)
-    left=merge_split(data[:mid])
-    right=merge_split(data[mid:])
-
-    return merge(left,right)
+    #left=merge_split(data[:mid])
+    #right=merge_split(data[mid:])
+    left=data[:mid]
+    right=data[mid:]
+    return merge(merge_split(left),merge_split(right))
 
 num_list=random.sample(range(100),50)
 num_list=merge_split(num_list)
