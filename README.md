@@ -7,16 +7,15 @@
 - 매일 꾸준히 5문제씩 풀고 리뷰하는 공간입니다.
 
 ## 📖studying
+- Data structure
 - Algorithm
   - greedy
   - implementation
   - dfs/bfs
   - sort
-    - bubble_sort
-    - selection_sort
-    - insertion_sort
-    - merge_sort
-    - quick_sort
-    - count_sort
   - binary_search
   - dynamic_programming
+  - shortest_path
+  - kruskal
+  - topology_sort
+- Problem
