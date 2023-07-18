@@ -2,6 +2,7 @@
 뱀 문제
 
 """
+from collections import deque
 #맵 초기화 >> 사과가 있는 곳은 a로표시 없는 곳은 0으로 표시
 n=int(input())
 graph=[[0]*(n) for _ in range(n)]
@@ -9,7 +10,7 @@ graph=[[0]*(n) for _ in range(n)]
 m=int(input())
 for _ in range(m):
     a,b=map(int,input().split())
-    graph[a-1][b-1]='a'
+    graph[a-1][b-1]=-1
 
 k=int(input())
 step=[]
@@ -19,7 +20,7 @@ for _ in range(k):
 
 #머리와 꼬리의 초기좌표
 head=[0,0]
-tail=[0,0]
+
 
 #동,남,서,북 >>시계방향으로 초기화
 move_x=[0,1,0,-1]
@@ -33,39 +34,33 @@ count=0
 
 #초기 뱀이 존재하는 구간
 graph[0][0]=1
-
+q=deque()
 while True:
     count += 1
-    x,y=head[0],head[1]
-
-
-    nx=x+move_x[direction]
-    ny=y+move_y[direction]
+    nx=head[0]+move_x[direction]
+    ny=head[1]+move_y[direction]
 
     #한 칸 옮겼을 때 벽일 경우
     if nx<0 or nx>=n or ny<0 or ny>=n:
         break
 
     else:
-        #자신의 몸과 마주칠 경우
-        if graph[nx][ny]!=0 and graph[nx][ny]!='a':
-            break
-        #사과와 마주칠 경우
-        elif graph[nx][ny]=='a':
 
-            graph[nx][ny]=graph[head[0]][head[1]]+1
+        #사과와 마주칠 경우
+        if graph[nx][ny]==-1:
+            graph[nx][ny]=1
             head[0],head[1]=nx,ny
+            q.append((nx,ny))
         elif graph[nx][ny]==0:
 
-            graph[nx][ny]=graph[head[0]][head[1]]+1
+            graph[nx][ny]=1
             head[0], head[1] = nx, ny
-
-            for i in range(4):
-                nnx,nny=tail[0]+move_x[i],tail[1]+move_y[i]
-                if 0<=nnx<n and 0<=nny<n:
-                    if graph[nnx][nny]==graph[tail[0]][tail[1]]+1:
-                        graph[tail[0]][tail[1]]=0
-                        tail[0],tail[1]=nnx,nny
+            q.append((nx, ny))
+            tx,ty=q.popleft()
+            graph[tx][ty]=0
+        # 자신의 몸과 마주칠 경우
+        else:
+            break
     # 방향을 바꾸는 구간이 존재할 때
     for i in range(len(step)):
         if count == int(step[i][0]):
