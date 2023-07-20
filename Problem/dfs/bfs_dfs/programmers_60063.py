@@ -26,25 +26,31 @@ def solution(board):
 
         if dir==0:
             if y2+1<len(board):
-                board[x2][y2+1]=2
-                q.append(((x2,y2),(x2,y2+1),0,time+1))
+                if board[x2][y2+1]==0:
+                    board[x2][y2+1]=2
+                    q.append(((x2,y2),(x2,y2+1),0,time+1))
             if x2+1<len(board) and board[x2+1][y1]==0:
-                board[x2+1][y2]=2
-                q.append(((x2,y2),(x2+1,y2),1,time+1))
+                if board[x2+1][y2]==0:
+                    board[x2+1][y2]=2
+                    q.append(((x2,y2),(x2+1,y2),1,time+1))
             if x2-1>=0 and board[x2-1][y1]==0:
-                board[x2-1][y2]=2
-                q.append(((x2-1,y2),(x2,y2),1,time+1))
+                if board[x2-1][y2]==0:
+                    board[x2-1][y2]=2
+                    q.append(((x2-1,y2),(x2,y2),1,time+1))
 
         elif dir==1:
             if x2+1<len(board):
-                board[x2+1][y2]=2
-                q.append(((x2,y2),(x2+1,y2),1,time+1))
+                if board[x2+1][y2]==0:
+                    board[x2+1][y2]=2
+                    q.append(((x2,y2),(x2+1,y2),1,time+1))
             if y1+1<len(board) and board[x1][y1+1]==0:
-                board[x2][y2+1]=2
-                q.append(((x2,y2),(x2,y2+1),0,time+1))
+                if board[x2][y2+1]==0:
+                    board[x2][y2+1]=2
+                    q.append(((x2,y2),(x2,y2+1),0,time+1))
             if y1-1<len(board) and board[x1][y1-1]==0:
-                board[x2][y2-1]=2
-                q.append(((x2,y2-1),(x2,y2),0,time+1))
+                if board[x2][y2-1]==0:
+                    board[x2][y2-1]=2
+                    q.append(((x2,y2-1),(x2,y2),0,time+1))
     return answer
 
 board=[[0, 0, 0, 1, 1],[0, 0, 0, 1, 0],[0, 1, 0, 1, 1],[1, 1, 0, 0, 1],[0, 0, 0, 0, 0]]
