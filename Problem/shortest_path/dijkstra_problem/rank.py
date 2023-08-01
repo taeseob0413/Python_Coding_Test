@@ -25,10 +25,10 @@ for _ in range(m):
     graph[a].append((b,1))
     graph[b].append((a, 1))
 
-count=0
+
 def dijkstra(start):
     global n
-    global count
+    count=0
     dis=[INF]*(n+1)
     q=[]
     dis[start]=0
@@ -42,11 +42,13 @@ def dijkstra(start):
             if cost<dis[i[0]]:
                 dis[i[0]]=cost
                 heapq.heappush(q,(cost,i[0]))
+
     for i in range(1,n+1):
         if dis[i]!=INF:
             count+=1
         else:
             break
+
     if count==n:
         print(start,end=' ')
 
