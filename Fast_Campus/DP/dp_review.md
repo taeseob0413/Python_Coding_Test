@@ -9,7 +9,7 @@ Memoization : 한 번의 구현결과를 메모리 공간에 저장 후 같은 �
 
 피보나치 수열의 경우에 재귀함수로 구현할 경우 O(2^N)의 시간복잡도를 갖지만 DP로 구현할 시 O(N)의 시간복잡도를 갖음
 
-'''python : fibo.py
+```python : fibo.py
 
 #재귀 함수를 이용한 fibo
 def fibo(n):
@@ -35,4 +35,4 @@ for i in range(3,n+1):
     dp1[i]=dp1[i-1]+dp1[i-2]
 
 prinit(fibo(99),dp_top_down(99),dp1[99])
-'''
+```
