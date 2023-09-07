@@ -34,5 +34,4 @@ n=99
 for i in range(3,n+1):
     dp1[i]=dp1[i-1]+dp1[i-2]
 
-prinit(fibo(99),dp_top_down(99),dp1[99])
 ```
