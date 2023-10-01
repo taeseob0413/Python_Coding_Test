@@ -13,7 +13,7 @@ n=int(input())
 food=list(map(int,input().split()))
 dp=[0]*(n)
 dp[0]=food[0]
-dp[1]=food[1]
+dp[1]=max(food[0],food[1])
 
 for i in range(2,len(food)):
     dp[i]=max(dp[i-1],food[i]+dp[i-2])

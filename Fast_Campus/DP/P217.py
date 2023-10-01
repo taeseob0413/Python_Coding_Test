@@ -26,7 +26,7 @@ dp=[INF]*(x+1)
 
 def target_1(x,count):
     if x==1:
-        dp[x]=min(dp[x],count+1)
+        dp[x]=min(dp[x],count)
     if x<=0:
         return
     if x%5==0:
@@ -53,7 +53,7 @@ for i in range(2,n+1):
     if i%2==0:
         dp[i]=min(dp[i],dp[i//2]+1)
     if i%3==0:
-        dp[i]=min(dp[i],dp[i//2]+1)
+        dp[i]=min(dp[i],dp[i//3]+1)
     if i%5==0:
         dp[i]=min(dp[i],dp[i//5]+1)
 

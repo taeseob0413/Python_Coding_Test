@@ -30,14 +30,16 @@ else:
     print(dp[m])
 
 #해설지 풀이
-dp1=[10001]*(m+1)
+dp1=[INF]*(10001)
 dp1[0]=0
+
 for i in range(n):
     for j in range(coins[i],m+1):
-        if dp1[j-coins[i]]!=10001:
+        if dp1[j-coins[i]]!=INF:
             dp1[j]=min(dp1[j],dp1[j-coins[i]]+1)
 
-if dp1[m]==10001:
+
+if dp1[m]==INF:
     print(-1)
 else:
     print(dp1[m])
